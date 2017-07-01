@@ -65,27 +65,10 @@ rParen = prim consume
 bool :: LogicParser Expression
 bool = true <|> false
 
-atom :: LogicParser Expression
-atom = bool <|> var
-
-expr :: LogicParser Expression
-expr = try unaryExpr
-       <|> try (between lParen rParen expr)
-       <|> try binaryExpr
-       <|> atom
-
-unaryExpr :: LogicParser Expression
-unaryExpr = do
-  op <- unaryOp
-  e <- expr
-  return $ UnaryExp op e
-
-binaryExpr :: LogicParser Expression
-binaryExpr = do
-  e1 <- atom
-  op <- binaryOp
-  e2 <- atom
-  return $ BinaryExp e1 op e2
+term :: LogicParser Expression
+term = try (between lParen rParen expr)
+       <|> var
+       <|> bool
 
 -- Utility
 

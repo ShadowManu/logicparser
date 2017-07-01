@@ -1,3 +1,7 @@
+# Executables
 *.hi
 *.o
 *.exe
+
+# Intermediate files
+Lexer.hs
