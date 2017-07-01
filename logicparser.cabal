@@ -21,6 +21,8 @@ library
   build-tools:         alex
   default-language:    Haskell2010
   other-modules:       Lexer
+                     , Parser
+                     , Types
 
 executable logicparser-exe
   hs-source-dirs:      app
