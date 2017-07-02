@@ -9,7 +9,7 @@ data Token =
   -- UNARY OPS
   NOT
   -- BINARY OPS
-  | EQUAL | NOTEQUAL | OR | AND | IMPLIES
+  | EQUIV |  OR | AND | IMPLIES
   -- LITERAL VALUES
   | TRUE | FALSE
   -- SYMBOLS
@@ -23,14 +23,13 @@ data Token =
 data UnaryOp = Neg deriving (Show, Eq)
              
 data BinaryOp = Eq
-              | NotEq
               | Or
               | And
               | Implies
               deriving (Show, Eq)
 
-data Expression = Var { getName :: String }
+data Expression = Var { getVar :: String }
                 | Val { getVal :: Bool }
-                | BinaryExp Expression BinaryOp Expression
+                | BinaryExp BinaryOp Expression Expression
                 | UnaryExp UnaryOp Expression
                 deriving (Show, Eq)

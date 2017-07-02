@@ -3,7 +3,6 @@ module Lib
     ) where
 
 import Types
-import Parser (testParser, true)
 
 someFunc :: IO ()
-someFunc = print $ testParser true [TRUE]
+someFunc = putStrLn "hey"

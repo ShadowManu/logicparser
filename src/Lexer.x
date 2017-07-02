@@ -21,8 +21,7 @@ tokens :-
   \)            { \s -> RPAREN }
 
   -- Binary Operators
-  ===           { \s -> EQUAL }
-  !==           { \s -> NOTEQUAL }
+  ===           { \s -> EQUIV }
   \/\\          { \s -> AND }
   \\\/          { \s -> OR }
   =>            { \s -> IMPLIES }
