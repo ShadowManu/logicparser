@@ -1,5 +1,6 @@
 module Parser
-( 
+( expr
+, testParser
 ) where
 
 import Control.Applicative ((<$>))
@@ -82,5 +83,5 @@ expr = buildExpressionParser table term
 
 -- Utility
 
-testParser :: Parser a -> Stream -> Either ParseError a
-testParser parser = runParser parser () "Fuente"
+testParser :: String -> Either ParseError Expression
+testParser str = runParser expr () "Fuente" (alexScanTokens str)

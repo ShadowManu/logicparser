@@ -1,5 +1,5 @@
 {
-module Lexer (lexer) where
+module Lexer (alexScanTokens) where
 import Types (Token(..))
 }
 
@@ -31,10 +31,3 @@ tokens :-
 
   -- Variables
   $alpha+       { \s -> VAR s }
-
-{
-
-lexer :: String -> [Token]
-lexer = alexScanTokens
-
-}

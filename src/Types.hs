@@ -1,9 +1,6 @@
 module Types where
 
----- Operators
-
-
----- Tokens
+---- Token Types
 
 data Token =
   -- UNARY OPS
@@ -18,7 +15,7 @@ data Token =
   | VAR String
   deriving (Show, Eq)
 
---- Other stuff
+---- Expression Types
 
 data UnaryOp = Neg deriving (Show, Eq)
              
