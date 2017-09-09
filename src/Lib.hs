@@ -1,5 +1,7 @@
 module Lib
-( module Parser
+( module Eval
+, module Parser
 ) where
 
+import Eval
 import Parser

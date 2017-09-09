@@ -1,5 +1,6 @@
 module Parser
 ( expr
+, ParseError
 , testParser
 ) where
 
@@ -77,7 +78,7 @@ basic = parse true
         <|> parse var
 
 term = basic
-       <|> try (between (parse lParen) (parse rParen) basic)
+       <|> try (between (parse lParen) (parse rParen) expr)
 
 expr = buildExpressionParser table term
 

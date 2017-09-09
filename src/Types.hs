@@ -13,20 +13,20 @@ data Token =
   | LPAREN | RPAREN
   -- VARIABLES
   | VAR String
-  deriving (Show, Eq)
+  deriving (Eq, Show)
 
 ---- Expression Types
 
-data UnaryOp = Neg deriving (Show, Eq)
+data UnaryOp = Neg deriving (Eq, Ord, Show)
              
 data BinaryOp = Eq
               | Or
               | And
               | Implies
-              deriving (Show, Eq)
+              deriving (Eq, Ord, Show)
 
-data Expression = Var { getVar :: String }
-                | Val { getVal :: Bool }
-                | BinaryExp BinaryOp Expression Expression
+data Expression = Val { getVal :: Bool }
+                | Var { getVar :: String }
                 | UnaryExp UnaryOp Expression
-                deriving (Show, Eq)
+                | BinaryExp BinaryOp Expression Expression
+                deriving (Eq, Show)
